@@ -24,6 +24,7 @@ export default {
       '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
     },
     fontSize: {
+      xs: '0.2rem',
       sm: '0.8rem',
       base: '1rem',
       xl: '1.25rem',
@@ -31,6 +32,19 @@ export default {
       '3xl': '1.953rem',
       '4xl': '2.441rem',
       '5xl': '3.052rem',
+    },
+    fontWeight: {
+      thin: '50',
+      hairline: '100',
+      extralight: '200',
+      light: '300',
+      normal: '400',
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+      extrabold: '800',
+      'extra-bold': '800',
+      black: '900',
     }
   },
   plugins: [],
