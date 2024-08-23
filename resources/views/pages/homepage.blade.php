@@ -1,10 +1,7 @@
-@extends('layouts.guest')
 
-@section('title', 'MeetTheMissionaries')
-
-@section('content')
-
-    <!---->
+<!-- resources/views/homepage.blade.php -->
+<x-guest-layout>
+        <!---->
     <nav class="w-full bg-white mb-6">
         <div class="flex items-center justify-between">
             <!--Imagen para el nav-->
@@ -15,10 +12,12 @@
             </div>
             <!--boton de iniciar sesion-->
             <div class="mr-6">
-                <button class="bg-azul-boton text-white font-extralight py-1 px-1.5 rounded-[6px] flex items-center">
-                    <x-iconpark-people-o class="h-4 mr-[6px]" />
-                    Sign in
-                </button>
+                <div class="mr-6">
+                    <a href="{{ route('login') }}" class="bg-azul-boton text-white font-extralight py-1 px-1.5 rounded-[6px] flex items-center">
+                        <x-iconpark-people-o class="h-4 mr-[6px]" />
+                        Sign in
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -521,6 +520,4 @@
             <p>2024 by Intellectual Reserve, Inc. All rights reserved.</p>
         </div>
     </div>
-@endsection
-@section('js')
-@endsection
+</x-guest-layout>
