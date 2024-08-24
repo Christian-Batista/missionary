@@ -1,7 +1,15 @@
-
 <!-- resources/views/homepage.blade.php -->
 <x-guest-layout>
-        <!---->
+    <style>
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details summary::marker {
+            display: none;
+        }
+    </style>
+    <!---->
     <nav class="w-full bg-white mb-6">
         <div class="flex items-center justify-between">
             <!--Imagen para el nav-->
@@ -11,15 +19,39 @@
                 </a>
             </div>
             <!--boton de iniciar sesion-->
-            <div class="mr-6">
+            <div class="hidden md:flex flex-row mr-6">
                 <div class="mr-6">
-                    <a href="{{ route('login') }}" class="bg-azul-boton text-white font-extralight py-1 px-1.5 rounded-[6px] flex items-center">
+                    <a href="{{ route('register') }}"
+                        class="bg-azul-boton text-white font-extralight py-1 px-1.5 rounded-[6px] flex items-center">
+                        <x-iconpark-people-o class="h-4 mr-[6px]" />
+                        Register
+                    </a>
+                </div>
+                <div class="mr-6">
+                    <a href="{{ route('login') }}"
+                        class="bg-azul-boton text-white font-extralight py-1 px-1.5 rounded-[6px] flex items-center">
                         <x-iconpark-people-o class="h-4 mr-[6px]" />
                         Sign in
                     </a>
                 </div>
             </div>
-        </div>
+            <!-- Botón de hamburguesa -->
+            <div class="md:hidden flex items-center relative mr-4">
+                <div class="tham tham-e-squeeze tham-w-6" id="menu-toggle">
+                    <div class="tham-box">
+                        <div class="tham-inner"></div>
+                    </div>
+                </div>
+
+                <!-- Menú desplegable -->
+                <div id="dropdown-menu"
+                    class="hidden absolute right-0 mt-32 w-48 bg-white border border-gray-200 shadow-lg rounded-md">
+                    <a href="{{route('register')}}" class="block px-4 py-2 text-gray-700 font-bold hover:bg-gray-100">Register</a>
+                    <a href="{{route('login')}}" class="block px-4 py-2 text-gray-700 font-bold hover:bg-gray-100">Sign In</a>
+                </div>
+            </div>
+
+
     </nav>
     <!--Seccion conoce a los misioneros-->
     <section>
@@ -34,7 +66,8 @@
                     Would you like to meet the missionaries?
                 </h1>
                 <p class="text-center text-gris-obscuro w-4/8 mb-8">
-                    The young people of the Church of Jesus Christ of Latter-day Saints dedicate a period of their lives to
+                    The young people of the Church of Jesus Christ of Latter-day Saints dedicate a period of their lives
+                    to
                     service, moved by their love and faith. They temporarily abandon their studies and jobs to share the
                     message
                     of Jesus Christ, help those in need, and strengthen communities with love and dedication.
@@ -73,7 +106,8 @@
                 The members of The Church of Jesus Christ, like the missionaries, dedicate themselves with devotion to a
                 divine cause: serving their neighbors and sharing the blessings of a work that transcends borders and
                 transforms lives. With unwavering faith, they bring light to those who need it, extending the hands of
-                Christ in every act of love and service, illuminating the path to a future full of hope and eternal peace.
+                Christ in every act of love and service, illuminating the path to a future full of hope and eternal
+                peace.
             </p>
         </div>
     </div>
@@ -87,12 +121,16 @@
         <!--label de los misioneros-->
         <div class="w-full flex flex-col items-center justify-center mb-10">
             <p class=" text-center text-gris-obscuro w-5/6">
-                Missionaries of the Church of Jesus Christ of Latter-day Saints are young volunteers who dedicate between 18
-                and 24 months of their lives to the service of God and humanity. Motivated by their love for Jesus Christ
+                Missionaries of the Church of Jesus Christ of Latter-day Saints are young volunteers who dedicate
+                between 18
+                and 24 months of their lives to the service of God and humanity. Motivated by their love for Jesus
+                Christ
                 and their neighbors, they leave behind their studies, jobs and families to share a message of hope and
                 salvation. These brave young people strive to strengthen communities, provide help to those in need, and
-                offer a sincere testimony of their faith in Christ. With humility and dedication, they seek to change lives
-                and hearts, guiding people toward a greater understanding of the gospel and toward a life full of purpose
+                offer a sincere testimony of their faith in Christ. With humility and dedication, they seek to change
+                lives
+                and hearts, guiding people toward a greater understanding of the gospel and toward a life full of
+                purpose
                 and peace.
             </p>
         </div>
@@ -118,10 +156,14 @@
             <div class="text-center md:text-left mb-6">
                 <h3 class="font-bold mb-2  text-gris-obscuro">Their time</h3>
                 <p class="text-gris-obscuro/80 w-5/6 mx-auto">
-                    Missionaries of the Church of Jesus Christ of Latter-day Saints are young people who spend between 18
-                    and 24 months serving God and humanity. During this time, they step away from their studies, jobs, and
-                    families to share a message of hope and faith in Christ. Motivated by their love for God and neighbor,
-                    they offer their time and skills to strengthen communities, help those in need, and offer their personal
+                    Missionaries of the Church of Jesus Christ of Latter-day Saints are young people who spend between
+                    18
+                    and 24 months serving God and humanity. During this time, they step away from their studies, jobs,
+                    and
+                    families to share a message of hope and faith in Christ. Motivated by their love for God and
+                    neighbor,
+                    they offer their time and skills to strengthen communities, help those in need, and offer their
+                    personal
                     testimony of the truth of the gospel. It is a time of sacrifice and dedication, where they focus on
                     changing lives and hearts through service and teaching.
                 </p>
@@ -130,9 +172,11 @@
             <div class="text-center md:text-left mb-6">
                 <h3 class="font-bold mb-2  text-gris-obscuro">Why?</h3>
                 <p class="text-gris-obscuro/80 w-5/6 mx-auto">
-                    What drives missionaries is their deep love for Jesus Christ and the desire to share the joy they have
+                    What drives missionaries is their deep love for Jesus Christ and the desire to share the joy they
+                    have
                     found in his gospel. They feel a sacred responsibility to help others come closer to Christ and
-                    experience the peace and purpose that their faith has brought them. Missionaries believe their message
+                    experience the peace and purpose that their faith has brought them. Missionaries believe their
+                    message
                     can transform lives and bring hope to those who need it. With determination and love, they embark on
                     this mission to serve others, convinced that, in doing so, they are fulfilling God's will.
                 </p>
@@ -141,10 +185,13 @@
                 <h3 class="font-bold mb-2  text-gris-obscuro">What do they gain by doing it?</h3>
                 <p class="text-gris-obscuro/80 w-5/6 mx-auto">
                     For many, it may be difficult to understand why young people in the prime of life would leave their
-                    studies or jobs to preach in unknown places. However, missionaries reap invaluable rewards from serving.
-                    They gain deep spiritual growth, a renewed sense of purpose, and a greater understanding of God's love.
+                    studies or jobs to preach in unknown places. However, missionaries reap invaluable rewards from
+                    serving.
+                    They gain deep spiritual growth, a renewed sense of purpose, and a greater understanding of God's
+                    love.
                     They also develop life skills, such as resilience, empathy and leadership. Although their service is
-                    unpaid, the satisfaction of seeing lives transformed and hearts changed is the greatest reward they can
+                    unpaid, the satisfaction of seeing lives transformed and hearts changed is the greatest reward they
+                    can
                     receive.
                 </p>
             </div>
@@ -239,7 +286,7 @@
             <h1 class="text-gray-600">Learn More About Us</h1>
         </div>
         <div class="hidden md:flex md:w-3/4 flex-row justify-evenly mb-28 md:mt-18">
-            
+
             <!--Libreries links-->
             <div class="flex flex-col">
                 <h2 class="text-[13px] text-sky-900">Libraries</h2>
@@ -248,12 +295,14 @@
                     <a class="hover:underline"
                         href="https://www.churchofjesuschrist.org/study/scriptures?lang=eng&platform=web">Scriptures</a>
                     <a class="hover:underline"
-                        href="https://www.churchofjesuschrist.org/study/general-conference?lang=eng">General Conference</a>
+                        href="https://www.churchofjesuschrist.org/study/general-conference?lang=eng">General
+                        Conference</a>
                     <a class="hover:underline"
                         href="https://www.churchofjesuschrist.org/study/come-follow-me?lang=eng">Come, Follow Me</a>
                     <a class="hover:underline"
                         href="https://www.churchofjesuschrist.org/study/lib?lang=eng&platform=web">Gospel Library</a>
-                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/media?lang=eng">Media Library</a>
+                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/media?lang=eng">Media
+                        Library</a>
                     <a class="hover:underline" href="https://www.churchofjesuschrist.org/media/music?lang=eng">Media
                         Music</a>
                     <a class="hover:underline"
@@ -269,13 +318,16 @@
                 <h2 class="text-[13px] text-sky-900">Serve</h2>
                 <hr class="mb-1">
                 <div class="flex flex-col text-gray-600 text-[12px] font-thin space-y-1">
-                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/callings?lang=eng">Callings</a>
                     <a class="hover:underline"
-                        href="https://www.churchofjesuschrist.org/study/sharing-the-gospel?lang=eng">Sharing the Gospel</a>
+                        href="https://www.churchofjesuschrist.org/callings?lang=eng">Callings</a>
+                    <a class="hover:underline"
+                        href="https://www.churchofjesuschrist.org/study/sharing-the-gospel?lang=eng">Sharing the
+                        Gospel</a>
                     <a class="hover:underline" href="https://www.churchofjesuschrist.org/serve?lang=eng">Volunteer and
                         Serve</a>
                     <a class="hover:underline" href="https://www.churchofjesuschrist.org/temples?lang=eng">Temples</a>
-                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/family-history?lang=eng">Family
+                    <a class="hover:underline"
+                        href="https://www.churchofjesuschrist.org/family-history?lang=eng">Family
                         History</a>
                 </div>
 
@@ -298,7 +350,8 @@
                 <hr class="mb-1">
                 <div class="flex flex-col text-gray-600 text-[12px] font-thin space-y-1">
                     <a class="hover:underline"
-                        href="https://www.churchofjesuschrist.org/welcome/who-are-the-latter-day-saints?lang=eng">Who We
+                        href="https://www.churchofjesuschrist.org/welcome/who-are-the-latter-day-saints?lang=eng">Who
+                        We
                         Are</a>
                     <a class="hover:underline"
                         href="https://www.churchofjesuschrist.org/welcome/restored-church-of-jesus-christ?lang=eng">Our
@@ -322,7 +375,8 @@
                 <hr class="mb-1">
                 <div class="flex flex-col text-gray-600 text-[12px] font-thin space-y-1">
                     <a class="hover:underline" href="https://www.churchofjesuschrist.org/my-home?lang=eng">My Home</a>
-                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/donations?lang=eng">Donations</a>
+                    <a class="hover:underline"
+                        href="https://www.churchofjesuschrist.org/donations?lang=eng">Donations</a>
                     <a class="hover:underline"
                         href="https://www.churchofjesuschrist.org/temples/schedule/appointment?lang=eng">Temple
                         Appointments</a>
@@ -333,11 +387,13 @@
                     <a class="hover:underline" href="https://www.familysearch.org/">FamilySearch.org</a>
                     <a class="hover:underline" href="https://directory.churchofjesuschrist.org/">Ward Directory and
                         Map</a>
-                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/calendar?lang=eng">Calendar</a>
+                    <a class="hover:underline"
+                        href="https://www.churchofjesuschrist.org/calendar?lang=eng">Calendar</a>
                     <a class="hover:underline" href="https://maps.churchofjesuschrist.org/?lang=eng">Meetinghouse
                         Locator</a>
                     <a class="hover:underline" href="https://www.churchofjesuschrist.org/notes?lang=eng">Notes</a>
-                    <a class="hover:underline" href="https://pb.churchofjesuschrist.org/pbrequest?lang=eng">Patriarchal
+                    <a class="hover:underline"
+                        href="https://pb.churchofjesuschrist.org/pbrequest?lang=eng">Patriarchal
                         Blessing</a>
                 </div>
 
@@ -354,12 +410,14 @@
                     <a class="hover:underline"
                         href="https://www.churchofjesuschrist.org/study/scriptures?lang=eng&platform=web">Scriptures</a>
                     <a class="hover:underline"
-                        href="https://www.churchofjesuschrist.org/study/general-conference?lang=eng">General Conference</a>
+                        href="https://www.churchofjesuschrist.org/study/general-conference?lang=eng">General
+                        Conference</a>
                     <a class="hover:underline"
                         href="https://www.churchofjesuschrist.org/study/come-follow-me?lang=eng">Come, Follow Me</a>
                     <a class="hover:underline"
                         href="https://www.churchofjesuschrist.org/study/lib?lang=eng&platform=web">Gospel Library</a>
-                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/media?lang=eng">Media Library</a>
+                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/media?lang=eng">Media
+                        Library</a>
                     <a class="hover:underline" href="https://www.churchofjesuschrist.org/media/music?lang=eng">Media
                         Music</a>
                     <a class="hover:underline"
@@ -374,13 +432,16 @@
             <details class="w-full p-4">
                 <summary class="font-bold text-[13px] text-gray-700">Serve</summary>
                 <div class="mt-2 flex flex-col text-gray-600 text-[12px] font-thin space-y-4">
-                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/callings?lang=eng">Callings</a>
                     <a class="hover:underline"
-                        href="https://www.churchofjesuschrist.org/study/sharing-the-gospel?lang=eng">Sharing the Gospel</a>
+                        href="https://www.churchofjesuschrist.org/callings?lang=eng">Callings</a>
+                    <a class="hover:underline"
+                        href="https://www.churchofjesuschrist.org/study/sharing-the-gospel?lang=eng">Sharing the
+                        Gospel</a>
                     <a class="hover:underline" href="https://www.churchofjesuschrist.org/serve?lang=eng">Volunteer and
                         Serve</a>
                     <a class="hover:underline" href="https://www.churchofjesuschrist.org/temples?lang=eng">Temples</a>
-                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/family-history?lang=eng">Family
+                    <a class="hover:underline"
+                        href="https://www.churchofjesuschrist.org/family-history?lang=eng">Family
                         History</a>
                 </div>
             </details>
@@ -401,7 +462,8 @@
                 <summary class="font-bold text-[13px] text-gray-700">About Us</summary>
                 <div class="mt-2 flex flex-col text-gray-600 text-[12px] font-thin space-y-4">
                     <a class="hover:underline"
-                        href="https://www.churchofjesuschrist.org/welcome/who-are-the-latter-day-saints?lang=eng">Who We
+                        href="https://www.churchofjesuschrist.org/welcome/who-are-the-latter-day-saints?lang=eng">Who
+                        We
                         Are</a>
                     <a class="hover:underline"
                         href="https://www.churchofjesuschrist.org/welcome/restored-church-of-jesus-christ?lang=eng">Our
@@ -424,7 +486,8 @@
                 <summary class="font-bold text-[13px] text-gray-700">Resources</summary>
                 <div class="mt-2 flex flex-col text-gray-600 text-[12px] font-thin space-y-4">
                     <a class="hover:underline" href="https://www.churchofjesuschrist.org/my-home?lang=eng">My Home</a>
-                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/donations?lang=eng">Donations</a>
+                    <a class="hover:underline"
+                        href="https://www.churchofjesuschrist.org/donations?lang=eng">Donations</a>
                     <a class="hover:underline"
                         href="https://www.churchofjesuschrist.org/temples/schedule/appointment?lang=eng">Temple
                         Appointments</a>
@@ -435,11 +498,13 @@
                     <a class="hover:underline" href="https://www.familysearch.org/">FamilySearch.org</a>
                     <a class="hover:underline" href="https://directory.churchofjesuschrist.org/">Ward Directory and
                         Map</a>
-                    <a class="hover:underline" href="https://www.churchofjesuschrist.org/calendar?lang=eng">Calendar</a>
+                    <a class="hover:underline"
+                        href="https://www.churchofjesuschrist.org/calendar?lang=eng">Calendar</a>
                     <a class="hover:underline" href="https://maps.churchofjesuschrist.org/?lang=eng">Meetinghouse
                         Locator</a>
                     <a class="hover:underline" href="https://www.churchofjesuschrist.org/notes?lang=eng">Notes</a>
-                    <a class="hover:underline" href="https://pb.churchofjesuschrist.org/pbrequest?lang=eng">Patriarchal
+                    <a class="hover:underline"
+                        href="https://pb.churchofjesuschrist.org/pbrequest?lang=eng">Patriarchal
                         Blessing</a>
                 </div>
             </details>
@@ -455,7 +520,8 @@
                 <a class="hover:underline"
                     href="https://www.churchofjesuschrist.org/church/employment?lang=eng">Employment</a>
                 <a class="hover:underline" href="https://www.churchofjesuschrist.org/tools/help?lang=eng">Help</a>
-                <a class="hover:underline" href="https://www.churchofjesuschrist.org/countries?lang=eng">Area Sites</a>
+                <a class="hover:underline" href="https://www.churchofjesuschrist.org/countries?lang=eng">Area
+                    Sites</a>
             </div>
             <!-- Aquí personalizamos el HR -->
             <hr class="w-2/5 border-gray-400 mx-auto mb-4">
@@ -494,7 +560,8 @@
                         <x-bi-youtube class="size-6 text-red-600" />
                     </a>
                 </div>
-                <a class="font-thin text-[12px] hover:underline flex justify-center" href="">All Church Social Pages</a>
+                <a class="font-thin text-[12px] hover:underline flex justify-center" href="">All Church Social
+                    Pages</a>
             </div>
             <!--links-->
             <div class="flex flex-col justify-center items-center gap-2 font-light text-gray-600 text-[12px] mb-1">
@@ -505,10 +572,11 @@
                 <a class="hover:underline"
                     href="https://www.churchofjesuschrist.org/church/employment?lang=eng">Employment</a>
                 <a class="hover:underline" href="https://www.churchofjesuschrist.org/tools/help?lang=eng">Help</a>
-                <a class="hover:underline" href="https://www.churchofjesuschrist.org/countries?lang=eng">Area Sites</a>
+                <a class="hover:underline" href="https://www.churchofjesuschrist.org/countries?lang=eng">Area
+                    Sites</a>
             </div>
         </div>
-        
+
         <div class="text-[12px] font-thin flex flex-col justify-center items-center mb-14 md:mb-36">
             <a class="hover:underline" href="">Accessibility Support</a>
             <div class="flex flex-row my-2">
@@ -520,4 +588,14 @@
             <p>2024 by Intellectual Reserve, Inc. All rights reserved.</p>
         </div>
     </div>
+
+    <script>
+        const tham = document.querySelector(".tham");
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        
+        tham.addEventListener('click', () => {
+          tham.classList.toggle('tham-active');
+          dropdownMenu.classList.toggle('hidden');
+        });
+      </script>
 </x-guest-layout>
