@@ -14,7 +14,7 @@
         <div class="flex items-center justify-between">
             <!--Imagen para el nav-->
             <div>
-                <a href="#">
+                <a href="{{route('home')}}">
                     <img src="{{ asset('img/logoChurch.png') }}" alt="Logo" class="h-14">
                 </a>
             </div>
