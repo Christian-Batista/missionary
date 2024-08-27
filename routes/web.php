@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\pages\HomeController;
+use App\Http\Controllers\pages\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -15,6 +16,8 @@ Route::view('profile', 'profile')
 
 require __DIR__.'/auth.php';
 
-Route::get('home', function(){
-    return view('pages.homepage');
+
+Route::prefix('profile')->group(function() {
+    Route::get('/complete', [ProfileController::class, 'complete'])->name('profile.complete');
+    Route::post('/complete', [ProfileController::class, 'store'])->name('profile.complete.update');
 });

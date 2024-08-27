@@ -11,11 +11,11 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: {
-        host: '0.0.0.0',
-        port: 5173,
-        hmr: {
-            host: '192.168.1.4' // La IP de tu computadora
-        }
-    }
+    // server: {
+    //     host: '0.0.0.0',
+    //     port: 5173,
+    //     hmr: {
+    //         host: '192.168.1.3' // La IP de tu computadora
+    //     }
+    // }
 });

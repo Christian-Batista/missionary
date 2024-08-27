@@ -98,4 +98,25 @@ class ProfileTest extends TestCase
 
         $this->assertNotNull($user->fresh());
     }
+
+    public function test_guests_cannot_access_profile_complete_route(): void
+    {
+        $response = $this->get('/profile/complete');
+
+        $response->assertRedirect('/login');
+    }
+
+    public function test_profile_creation_is_displayed(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->get('/profile/complete');
+
+        if ($response->status() !== 200) {
+            dd($response->exception->getMessage());
+        }
+
+        $response->assertStatus(200);
+        $response->assertViewIs('pages.profile-complete');
+    }
 }

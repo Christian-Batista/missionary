@@ -54,4 +54,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Role::class);
     }
+
+    /**
+     * A user have one profile.
+     */
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }
