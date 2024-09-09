@@ -14,7 +14,8 @@
         <div class="flex items-center justify-between">
             <!--Imagen para el nav-->
             <div>
-                <a href="#">
+                <a href="{{route('home')}}"
+                wire:navigate>
                     <img src="{{ asset('img/logoChurch.png') }}" alt="Logo" class="h-14">
                 </a>
             </div>
@@ -22,6 +23,7 @@
             <div class="hidden md:flex flex-row mr-6">
                 <div class="mr-6">
                     <a href="{{ route('register') }}"
+                    wire:navigate
                         class="bg-azul-boton text-white font-extralight py-1 px-1.5 rounded-[6px] flex items-center">
                         <x-iconpark-people-o class="h-4 mr-[6px]" />
                         Register
@@ -29,6 +31,7 @@
                 </div>
                 <div class="mr-6">
                     <a href="{{ route('login') }}"
+                    wire:navigate
                         class="bg-azul-boton text-white font-extralight py-1 px-1.5 rounded-[6px] flex items-center">
                         <x-iconpark-people-o class="h-4 mr-[6px]" />
                         Sign in
@@ -46,8 +49,8 @@
                 <!-- Menú desplegable -->
                 <div id="dropdown-menu"
                     class="hidden absolute right-0 mt-32 w-48 bg-white border border-gray-200 shadow-lg rounded-md">
-                    <a href="{{route('register')}}" class="block px-4 py-2 text-gray-700 font-bold hover:bg-gray-100">Register</a>
-                    <a href="{{route('login')}}" class="block px-4 py-2 text-gray-700 font-bold hover:bg-gray-100">Sign In</a>
+                    <a href="{{route('register')}}" wire:navigate class="block px-4 py-2 text-gray-700 font-bold hover:bg-gray-100">Register</a>
+                    <a href="{{route('login')}}" wire:navigate class="block px-4 py-2 text-gray-700 font-bold hover:bg-gray-100">Sign In</a>
                 </div>
             </div>
 

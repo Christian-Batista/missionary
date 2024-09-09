@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\pages\HomeController;
+use App\Http\Controllers\pages\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function() {
-    return view('pages/homepage');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -16,6 +16,8 @@ Route::view('profile', 'profile')
 
 require __DIR__.'/auth.php';
 
-Route::get('home', function(){
-    return view('pages.homepage');
+
+Route::middleware('auth')->prefix('profile')->group(function() {
+    Route::get('/complete', [ProfileController::class, 'complete'])->name('profile.complete');
+    Route::post('/complete', [ProfileController::class, 'store'])->name('profile.complete.update');
 });
