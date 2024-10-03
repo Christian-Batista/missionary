@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
-    public function complete(): View
+    public function renderProfileComplete(): View
     {
-        return view('pages.profile-complete');
+        return view('pages.complete-profile');
     }
 }

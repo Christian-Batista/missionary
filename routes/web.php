@@ -16,8 +16,11 @@ Route::view('profile', 'profile')
 
 require __DIR__.'/auth.php';
 
+Route::get('profile', function() {
+    return view('livewire.profile.complete-profile');
+});
+
 
 Route::middleware('auth')->prefix('profile')->group(function() {
-    Route::get('/complete', [ProfileController::class, 'complete'])->name('profile.complete');
-    Route::post('/complete', [ProfileController::class, 'store'])->name('profile.complete.update');
+    Route::get('/complete', [ProfileController::class, 'renderProfileComplete'])->name('profile.complete');
 });

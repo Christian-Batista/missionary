@@ -13,7 +13,7 @@ class Profile extends Model
         'user_id',
         'profile_photo',
         'bio',
-        'missionary_type'
+        'missionary_gender'
     ];
 
     /**

@@ -1,4 +1,3 @@
-<!-- resources/views/homepage.blade.php -->
 <x-guest-layout>
     <style>
         details summary::-webkit-details-marker {

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->string('profile_photo')->nullable();
             $table->text('bio')->nullable();
-            $table->string('missionary_type'); //This have to be sister or elder.
+            $table->string('missionary_gender'); //This have to be sister or elder.
             $table->timestamps();
         });
     }

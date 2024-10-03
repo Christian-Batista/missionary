@@ -119,4 +119,21 @@ class ProfileTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('pages.profile-complete');
     }
+
+    // /**
+    //  * A simple test.
+    //  */
+    // public function test_a_profile_can_be_created_for_missionary(): void
+    // {
+    //     $user = User::factory()->create();
+
+    //     $response = $this->actingAs($user)->get('profile/complete');
+
+    //     if ($response->status !== 200) {
+    //         dd($response->exception->getMessage());
+    //     }
+
+
+    // }
+
 }
