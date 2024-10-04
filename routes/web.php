@@ -20,7 +20,6 @@ Route::get('profile', function() {
     return view('livewire.profile.complete-profile');
 });
 
-
 Route::middleware('auth')->prefix('profile')->group(function() {
     Route::get('/complete', [ProfileController::class, 'renderProfileComplete'])->name('profile.complete');
 });

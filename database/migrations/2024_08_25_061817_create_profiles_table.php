@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('mission_id')->constrained('missions');
             $table->string('profile_photo')->nullable();
             $table->text('bio')->nullable();
             $table->string('missionary_gender'); //This have to be sister or elder.
+            $table->string('tagName'); 
             $table->timestamps();
         });
     }

@@ -11,9 +11,11 @@ class Profile extends Model
 
     protected $fillable = [
         'user_id',
+        'mission_id',
         'profile_photo',
         'bio',
-        'missionary_gender'
+        'missionary_gender',
+        'tagName'
     ];
 
     /**
@@ -23,5 +25,10 @@ class Profile extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function mission()
+    {
+        return $this->belongsTo(Mission::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Profile;
 
+use App\Models\User;
 use App\Models\Profile;
 use Livewire\Component;
 
@@ -10,16 +11,17 @@ class CompleteProfile extends Component
     public $user;
     public int $currentStep = 1;
     public string $gender = "";
-
     public string $tagName = '';
     public string $bio = '';
-
     public bool $profileCompleted = false;
+    public string $trainerId;
+    public $trainer;
 
     protected $rules = [
         'gender' => 'required',
         'tagName' => 'required',
-        'bio' => 'required'
+        'bio' => 'required',
+        'trainerId' => 'required|exists:users,user_reference'
     ];
 
     public function mount()
@@ -47,9 +49,19 @@ class CompleteProfile extends Component
             $this->validate([
                 'bio' => 'required'
             ]);
-            $this->saveMissionaryProfile();
         }
 
+        if ($this->currentStep === 4) {
+            $this->validate([
+                'trainerId'=>'required|exists:users,user_reference',
+            ]);
+            $this->trainer = $this->getTrainer();
+        }
+
+        if ($this->currentStep === 5) {
+        }
+        
+        //$this->saveMissionaryProfile();
         $this->currentStep++;
     }
 
@@ -63,14 +75,18 @@ class CompleteProfile extends Component
         Profile::create([
             'user_id' => $this->user->id,
             'bio' => $this->bio,
-            'missionary_gender' => strtolower($this->gender)
+            'missionary_gender' => strtolower($this->gender),
+            'tagName' => $this->tagName
         ]);
 
         $this->profileCompleted = true;
-
-        # notify that profile is ready
-        $this->emit('profileCompleted');
     }
+
+    public function getTrainer()
+    {
+        return User::where('user_reference', $this->trainerId)->with('mission')->first();
+    }
+
     public function render()
     {
         return view('livewire.profile.complete-profile');

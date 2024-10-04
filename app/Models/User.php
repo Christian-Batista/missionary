@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'last_name',
         'email',
+        'user_reference',
         'password',
     ];
 
@@ -61,5 +62,13 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+
+    /**
+     *  A user belongs to a mission
+     */
+    public function mission()
+    {
+        return $this->belongsTo(Mission::class);
     }
 }
